@@ -9,7 +9,7 @@
 ## Basic 
 3. less-watch-compiler watch-folder output-folder
 
-_e.g: less-watch-compiler less css_
+* _e.g: less-watch-compiler less css_
 
 ## With Config File
 3. Create less-watch-compiler.config.json file
