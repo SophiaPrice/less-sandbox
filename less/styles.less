@@ -1,0 +1,68 @@
+// Variables
+@background-color: #f4f4f4;
+@font-family: Tahoma;
+@primary-color: #3b5998;
+@secondary-color: #20b2aa;
+@line-height: 1em + 1em;
+
+// Text Color Mixin
+.text-color(@back-color) when(lightness(@back-color) >= 50%) {
+  color: black;
+}
+
+// Text Color Mixin
+.text-color(@back-color) when(lightness(@back-color) < 50%) {
+  color: white;
+}
+
+body {
+  background: @background-color;
+  font-family: @font-family;
+  line-height: @line-height;
+}
+
+h1,
+h3 {
+  .bordered;
+}
+
+// Nesting
+ul#menu {
+  list-style: none;
+  // function (lighten/darken)
+  background-color: lighten(@secondary-color, 50%);
+  li {
+    padding: 10px 0;
+    a {
+      color: @secondary-color;
+      text-decoration: none;
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}
+
+.primary-text {
+  color: @primary-color;
+}
+
+.btn {
+  padding: 10px 15px;
+  border: 0;
+  .border-radius(30px);
+}
+
+.primary-btn:extend(.btn) {
+  background-color: @primary-color;
+  .text-color(@primary-color);
+}
+
+.border-radius(@radius) {
+  border-radius: @radius;
+}
+
+.bordered {
+  border-top: dotted 1px #000;
+  border-bottom: solid 2px #000;
+}
